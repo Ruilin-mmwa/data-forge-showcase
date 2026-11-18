@@ -1,14 +1,13 @@
-# Data Forge · AI 产品运营工作台
+# Data Forge 产品运营工作台
 
-[进入交互演示](https://ruilin-mmwa.github.io/data-forge-showcase/)
+[打开产品运营看板](https://ruilin-mmwa.github.io/data-forge-showcase/)
 
-这是蔡睿麟独立建设产品运营数据平台的公开方法演示。模板、用量、单价、样本记录和故障用例为本展示虚构。页面以静态文件运行，数据和试算都在访问者的浏览器内处理。
+这是蔡睿麟的产品运营数据平台方法演示，使用独立构造的账号、行为记录和模型账单。
 
-| 工具 | 可以验证的问题 |
+| 分析 | 可以核对的业务问题 |
 | --- | --- |
-| [成本实验室](https://ruilin-mmwa.github.io/data-forge-showcase/#cost) | 分模板调整定价、补贴、首构与追加编辑用量，测算缓存与采购条件。对比低价模板单独放量、全部模板同比例放量时的组合贡献。 |
-| [指标追溯](https://ruilin-mmwa.github.io/data-forge-showcase/#trace) | 切换日期和内外部账号，查看指标分子、分母、样本和原始回执，核对重复、有效零值、缺报和补录。 |
-| [埋点验收](https://ruilin-mmwa.github.io/data-forge-showcase/#audit) | 逐项核对预期动作、客户端触发和入库回执。切换采集实现，用同一批用例复验丢失字段和重复记录。 |
-| [经营概览](https://ruilin-mmwa.github.io/data-forge-showcase/#overview) | 查阅一批合成的月度构建记录，按模板、日期和账号筛选，从指标下钻到明细和模型成本分摊。 |
+| [产品运营看板](https://ruilin-mmwa.github.io/data-forge-showcase/#dashboard) | 有多少用户在创作？日活、周活和月活均按账号去重。可以查看趋势、新增与回访，并点开指标核对统计口径。 |
+| [转化分析](https://ruilin-mmwa.github.io/data-forge-showcase/#funnel) | 用户在哪个环节流失？按用户依次核对知识获取和应用创作的步骤，检查埋点缺报对转化率的影响。 |
+| [成本核算](https://ruilin-mmwa.github.io/data-forge-showcase/#cost) | A、B、C 各模板的首构与后续编辑分别花了多少钱？从模板汇总下钻到单次调用账单，还可以单独试算定价、补贴和采购条件变化。 |
 
-**读数约定**　成本实验室中的贡献余额等于销售实收减去模型费用。各工具使用独立的模拟样本，各自的口径和明细可在对应工具内核对。
+看板与漏斗使用同一批合成用户事件。成本页另设合成核算账期，并将账单核算与未来情景试算分开展示。所有计算在浏览器内完成。

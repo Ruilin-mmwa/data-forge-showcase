@@ -3,35 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="蔡睿麟的 AI 产品运营工作台，用合成样本演示模板定价、成本压力测试、指标追溯与埋点验收。">
+  <meta name="description" content="Data Forge 产品运营看板，可查看用户活跃、留存、行为转化和按模板核算的模型成本。交互作品使用合成数据。">
   <meta name="theme-color" content="#173d36">
-  <title>Data Forge · AI 产品运营工作台</title>
-  <link rel="stylesheet" href="workspace.css">
-  <link rel="stylesheet" href="cost.css">
-  <link rel="stylesheet" href="trace.css">
-  <link rel="stylesheet" href="distribution.css">
-  <script defer src="distribution.js"></script>
-  <script defer src="cost.js"></script>
-  <script defer src="trace.js"></script>
-  <script defer src="audit.js"></script>
-  <script defer src="workspace.js"></script>
+  <title>产品运营看板 · Data Forge</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%23173d36'/%3E%3Cpath d='M7 29h6v-9H7zm10 0h6V15h-6zm10 0h6V8h-6z' fill='%23d6e4d8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="workspace.css?v=ops2">
+  <link rel="stylesheet" href="operations.css?v=ops2">
+  <link rel="stylesheet" href="cost.css?v=ops2">
+  <link rel="stylesheet" href="distribution.css?v=ops2">
+  <script defer src="operations-data.js?v=ops2"></script>
+  <script defer src="operations.js?v=ops2"></script>
+  <script defer src="distribution.js?v=ops2"></script>
+  <script defer src="cost.js?v=ops2"></script>
+  <script defer src="workspace.js?v=ops2"></script>
 </head>
 <body>
 <header class="work-mast"><div class="work-width mast-inner">
-  <a class="work-brand" href="#cost" aria-label="Data Forge 成本实验室"><i class="brand-mark" aria-hidden="true"><b></b><b></b><b></b></i>Data Forge</a>
-  <span class="work-title">AI 产品运营工作台</span><span class="work-byline">蔡睿麟 · 交互作品</span>
+  <a class="work-brand" href="#dashboard" aria-label="Data Forge 首页"><i class="brand-mark" aria-hidden="true"><b></b><b></b><b></b></i>Data Forge</a>
+  <span class="work-title">产品运营工作台</span><span class="work-byline">蔡睿麟 · 交互作品</span>
 </div></header>
-<nav class="work-nav" aria-label="分析工具"><div class="work-width nav-inner">
-  <a href="#cost">成本实验室</a><a href="#trace">指标追溯</a><a href="#audit">埋点验收</a><a href="#overview">经营概览</a>
+<nav class="work-nav" aria-label="工作台导航"><div class="work-width nav-inner">
+  <a href="#dashboard" aria-current="page">运营看板</a><a href="#funnel">转化分析</a><a href="#cost">成本核算</a>
 </div></nav>
 <main class="work-width work-main">
-  <header class="work-heading"><div><h1 id="view-title" tabindex="-1">成本实验室</h1><p id="view-description">逐个调整模板的售价、采购条件和用量，检验哪些业务组合还能覆盖模型成本。</p></div>
-  <span class="sample-note"><i aria-hidden="true"></i> 合成数据演示</span></header>
-  <div id="cost-pane" class="work-pane"></div>
-  <div id="trace-pane" class="work-pane" hidden></div>
-  <div id="audit-pane" class="work-pane" hidden></div>
-  <div id="overview-pane" class="work-pane" hidden></div>
-  <noscript>请启用 JavaScript 以运行本地试算和指标核对。</noscript>
+  <header class="work-heading"><h1 id="view-title" tabindex="-1">产品运营看板</h1><span class="sample-note"><i aria-hidden="true"></i> 合成数据演示</span></header>
+  <div id="dashboard-pane" class="work-pane"></div>
+  <div id="funnel-pane" class="work-pane" hidden></div>
+  <div id="cost-pane" class="work-pane" hidden></div>
+  <noscript>请启用 JavaScript 以查看运营数据、切换转化路径和计算成本。</noscript>
 </main>
-<footer class="work-width work-footer">Data Forge <span>本展示用虚构业务样本重现分析方法，所有计算均在浏览器内完成。</span></footer>
+<footer class="work-width work-footer">Data Forge <span>作品展示使用虚构账号、行为记录与模型账单。</span></footer>
 </body></html>

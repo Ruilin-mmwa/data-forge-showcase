@@ -45,3 +45,33 @@
 .forge-cost .fc-account.fc-unit{margin-top:22px}
 .forge-cost .fc-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 @media(max-width:620px){.forge-cost .fc-readout{grid-template-columns:1fr}.forge-cost .fc-readout>div{grid-template-columns:minmax(96px,1fr) auto;align-items:center;gap:3px 8px}.forge-cost .fc-readout>div>span{grid-column:1/-1}.forge-cost .fc-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.forge-cost .fc-input{min-height:38px}.forge-cost th,.forge-cost td{padding:6px}.forge-cost .fc-heat button{min-height:36px}}
+.forge-cost .fc-area{display:grid;gap:16px;min-width:0}
+.forge-cost .fc-mode{display:flex;flex-wrap:wrap;gap:4px;justify-self:start;margin:0;padding:3px;background:#e8ede7;border:1px solid var(--fc-line);border-radius:7px}
+.forge-cost .fc-mode button{cursor:pointer;font:600 14px/1.4 var(--sans, sans-serif);color:var(--fc-muted);background:transparent;border:1px solid transparent;border-radius:4px;padding:7px 13px}
+.forge-cost .fc-mode button[aria-pressed=true]{color:var(--fc-ink);background:#fff;border-color:var(--fc-line)}
+.forge-cost .fc-period,.forge-cost .fc-picker{font-size:13px;color:var(--fc-muted)}
+.forge-cost .fc-picker select{padding:6px 9px;background:white;color:var(--fc-ink);border:1px solid #b7c8bc;border-radius:5px}
+.forge-cost .fc-link[aria-pressed=true]{font-weight:700;text-decoration-thickness:2px}
+.forge-cost tfoot th,.forge-cost tfoot td{background:var(--fc-wash);font-weight:650}
+.forge-cost .fc-invoice{display:flex;gap:16px;flex-wrap:wrap;padding:10px 15px;border-left:3px solid var(--fc-accent);margin-top:14px;background:var(--fc-wash);font-size:14px}
+.forge-cost .fc-bill-detail{margin:20px 0 16px;border-top:1px solid var(--fc-line);padding-top:15px}
+.forge-cost .fc-calculation{margin-top:10px;padding:10px 12px;border-radius:5px;background:var(--fc-wash);color:var(--fc-ink);font-size:14px}
+.forge-cost .fc-summary-heading{margin-top:18px}
+.forge-cost .fc-example{margin-top:12px;padding:10px 13px;background:#f3f6f2;border-left:3px solid #719083}
+.forge-cost .fc-example button{margin-left:3px}
+@media(max-width:600px){
+ .forge-cost .fc-period-ledger .fc-tablebox{overflow:visible}
+ .forge-cost .fc-period-ledger table,.forge-cost .fc-period-ledger tbody,.forge-cost .fc-period-ledger tfoot{display:block;width:100%;min-width:0}
+ .forge-cost .fc-period-ledger thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+ .forge-cost .fc-period-ledger tbody tr,.forge-cost .fc-period-ledger tfoot tr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px 4px;padding:8px 2px;border-bottom:1px solid var(--fc-line)}
+ .forge-cost .fc-period-ledger tr>*{border:0;min-width:0;padding:0 1px;text-align:left;white-space:normal;font-size:12px}
+ .forge-cost .fc-period-ledger tr>th{grid-column:1/3;font-weight:650}
+ .forge-cost .fc-period-ledger td:nth-child(2){grid-column:3/5;text-align:right;color:var(--fc-muted)}
+ .forge-cost .fc-period-ledger td:nth-child(2)::before{content:"完成 "}
+ .forge-cost .fc-period-ledger td:nth-child(2)::after{content:" 个 App"}
+ .forge-cost .fc-period-ledger td:nth-child(n+3)::before{display:block;font-size:10px;color:var(--fc-muted);font-weight:normal}
+ .forge-cost .fc-period-ledger td:nth-child(3)::before{content:"首次构建"}
+ .forge-cost .fc-period-ledger td:nth-child(4)::before{content:"追加编辑"}
+ .forge-cost .fc-period-ledger td:nth-child(5)::before{content:"费用合计"}
+ .forge-cost .fc-period-ledger td:nth-child(6)::before{content:"单个均摊"}
+}

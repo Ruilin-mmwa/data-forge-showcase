@@ -1,0 +1,13 @@
+.fdist{margin:14px 0 0;border-top:1px solid #d4e1d9;padding-top:12px}
+.fdist>summary,.fdist-proof>summary{cursor:pointer;color:#225c49;font-weight:650}
+.fdist>summary span{display:inline-block;margin-left:5px;color:#546d61;font-size:12px;font-weight:450}
+.fdist p{margin:8px 0;color:#465e51;font-size:13px;line-height:1.6}
+.fdist .fdist-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px;margin:9px 0}
+.fdist-stats div{min-width:0;border-left:2px solid #a7c8b4;padding-left:8px}
+.fdist-stats dt{font-size:12px;color:#536b60}
+.fdist-stats dd{margin:2px 0 0;font-size:clamp(15px,2vw,20px);line-height:1.4;font-weight:650;color:#255744;font-variant-numeric:tabular-nums}
+.fdist-proof{font-size:13px}.fdist-scroll{max-height:260px;overflow:auto}
+.fdist .fdist-scroll table{width:100%;font-size:12px;border-collapse:collapse}
+.fdist .fdist-scroll th,.fdist .fdist-scroll td{padding:4px 5px;border-bottom:1px solid #e0e9e4;text-align:left}
+.fdist summary:focus-visible{outline:2px solid #a86823;outline-offset:2px}
+@media(max-width:500px){.fdist .fdist-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}

@@ -1,0 +1,47 @@
+.forge-cost{--fc-ink:#21382f;--fc-muted:#50675b;--fc-line:#dbe5dd;--fc-wash:#f1f6f2;--fc-accent:#1b684e;--fc-rust:#9b462e;color:var(--fc-ink);display:grid;gap:16px;min-width:0}
+.forge-cost *{box-sizing:border-box}
+.forge-cost .fc-box{min-width:0;padding:clamp(16px,2.5vw,26px);border:1px solid var(--fc-line);background:white;border-radius:10px}
+.forge-cost h2,.forge-cost h3,.forge-cost p{margin:0}
+.forge-cost h2{font-size:clamp(19px,2vw,23px);line-height:1.4}
+.forge-cost h3{font-size:17px;line-height:1.5}
+.forge-cost p{font-size:14px;line-height:1.65;color:var(--fc-muted)}
+.forge-cost h2+p,.forge-cost h3+p,.forge-cost summary+p{margin-top:5px}
+.forge-cost .fc-heading,.forge-cost .fc-subhead{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.forge-cost .fc-mark{padding:3px 8px;border-radius:3px;font-size:12px;background:var(--fc-wash);color:var(--fc-accent)}
+.forge-cost button,.forge-cost input{font:inherit}
+.forge-cost .fc-tabs{margin:16px 0 18px;display:flex;flex-wrap:wrap;gap:6px}
+.forge-cost .fc-tabs button,.forge-cost .fc-link{padding:6px 12px;border:1px solid var(--fc-line);border-radius:5px;background:white;color:var(--fc-ink);cursor:pointer;font-size:14px}
+.forge-cost .fc-tabs button[aria-pressed="true"]{background:#214c3b;color:white;border-color:#214c3b}
+.forge-cost .fc-link{padding:3px 0;background:transparent;border:0;color:var(--fc-accent);text-decoration:underline;text-underline-offset:3px}
+.forge-cost .fc-fields{margin:10px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px 12px}
+.forge-cost .fc-fields label{display:flex;flex-direction:column;gap:4px;min-width:0;font-size:13px}
+.forge-cost .fc-input{display:flex;align-items:center;justify-content:space-between;border:1px solid #b7c8bc;border-radius:5px;background:#fff;padding:5px 7px}
+.forge-cost .fc-input input{width:100%;min-width:0;padding:0;border:0;outline:0;font-size:16px;font-variant-numeric:tabular-nums;color:var(--fc-ink);background:transparent}
+.forge-cost .fc-input small{color:var(--fc-muted);font-size:12px}
+.forge-cost .fc-input:focus-within,.forge-cost button:focus-visible,.forge-cost summary:focus-visible{outline:2px solid #207455;outline-offset:2px}
+.forge-cost .fc-note{font-size:12px;margin-top:10px}
+.forge-cost .fc-readout{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px}
+.forge-cost .fc-readout>div{background:var(--fc-wash);border-radius:6px;padding:12px 14px;display:grid;gap:3px;align-content:start}
+.forge-cost .fc-readout small,.forge-cost .fc-readout span{font-size:12px;color:var(--fc-muted)}
+.forge-cost .fc-readout strong{font:600 clamp(21px,2.5vw,29px)/1.3 Georgia,serif;font-variant-numeric:tabular-nums}
+.forge-cost .fc-ok{color:var(--fc-accent)}
+.forge-cost .fc-loss{color:var(--fc-rust)}
+.forge-cost .fc-verdict{padding:10px 0 0;color:var(--fc-ink)}
+.forge-cost .fc-tablebox{max-width:100%;overflow-x:auto;margin:12px 0 0}
+.forge-cost table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.forge-cost th,.forge-cost td{padding:8px;border-bottom:1px solid var(--fc-line);text-align:right}
+.forge-cost tr>th:first-child{text-align:left}
+.forge-cost th{font-weight:500}
+.forge-cost thead th{background:var(--fc-wash);color:var(--fc-muted)}
+.forge-cost tbody th{background:transparent;color:var(--fc-ink)}
+.forge-cost .fc-heat td{padding:3px}
+.forge-cost .fc-heat button{width:100%;padding:6px 4px;display:grid;gap:2px;justify-items:end;border:1px solid transparent;border-radius:4px;cursor:pointer;font-size:13px;white-space:nowrap}
+.forge-cost .fc-heat button small{font-size:11px}
+.forge-cost .fc-heat button[aria-pressed="true"]{border:2px solid var(--fc-ink);padding:5px 3px}
+.forge-cost .fc-pos{background:#e8f4ee;color:#17533e}
+.forge-cost .fc-neg{background:#fbeee7;color:#833d27}
+.forge-cost .fc-account summary{cursor:pointer;font-weight:600;font-size:16px}
+.forge-cost .fc-account[open] summary{margin-bottom:10px}
+.forge-cost .fc-account.fc-unit{margin-top:22px}
+.forge-cost .fc-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+@media(max-width:620px){.forge-cost .fc-readout{grid-template-columns:1fr}.forge-cost .fc-readout>div{grid-template-columns:minmax(96px,1fr) auto;align-items:center;gap:3px 8px}.forge-cost .fc-readout>div>span{grid-column:1/-1}.forge-cost .fc-fields{grid-template-columns:repeat(2,minmax(0,1fr))}.forge-cost .fc-input{min-height:38px}.forge-cost th,.forge-cost td{padding:6px}.forge-cost .fc-heat button{min-height:36px}}

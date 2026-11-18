@@ -45,7 +45,7 @@
     const cost = full * pay;
     const net = t.price - t.coupon;
     return { first, edit, firstCost: firstFull * pay, editCost: editFull * pay, full, cost,
-      net, contribution: net - cost, minPrice: cost + t.coupon, payCap: net / full * 100 };
+      net, contribution: net - cost, minPrice: Math.ceil((cost + t.coupon) * 100 - 1e-9) / 100, payCap: net / full * 100 };
   }
 
   function totals(rows) {
@@ -65,8 +65,8 @@
     { key: 'edits', label: '每件追加编辑', unit: '次', min: 0, max: 12, step: 0.1 },
     { key: 'hit', label: '输入缓存命中率', unit: '%', min: 0, max: 100, step: 1 },
     { key: 'pay', label: '采购实付比例', unit: '%', min: 0, max: 100, step: 1 },
-    { key: 'price', label: '单件标价', unit: '元', min: 0, max: 199, step: 0.1 },
-    { key: 'coupon', label: '单件商家补贴', unit: '元', min: 0, max: 199, step: 0.1 }
+    { key: 'price', label: '单件标价', unit: '元', min: 0, max: 199, step: 0.01 },
+    { key: 'coupon', label: '单件商家补贴', unit: '元', min: 0, max: 199, step: 0.01 }
   ];
   const costNames = ['未命中输入', '缓存读取', '缓存写入附加费', '输出'];
   const baseTotal = totals(templates);
@@ -79,7 +79,7 @@
         <div class="fc-tabs" role="group" aria-label="选择定价模板">${templates.map((t, i) => `<button type="button" data-tpl="${i}">${t.name}</button>`).join('')}</div>
         <div class="fc-subhead"><h3>模板参数</h3><button type="button" class="fc-link" data-reset>恢复本模板基准</button></div>
         <div class="fc-fields">${fields.map(f => `<label><span>${f.label}</span><span class="fc-input"><input type="number" data-key="${f.key}" min="${f.min}" max="${f.max}" step="${f.step}" inputmode="${f.step === 1 ? 'numeric' : 'decimal'}"><small>${f.unit}</small></span></label>`).join('')}</div>
-        <p class="fc-note">每件含一次首构。追加次数取每件平均值。采购实付 80% 表示按标价的八折结算。补贴上限为单件标价。切换模板会保留当前试算。</p>
+        <p class="fc-note">每件含一次首构。追加次数取每件平均值。采购实付 80% 表示按标价的八折结算。补贴上限为单件标价。保本价向上取整至分。切换模板会保留当前试算。</p>
         <div data-readout></div>
       </section>
       <section class="fc-box" data-portfolio></section>
@@ -114,14 +114,14 @@
       const t = state[selected], x = account(t), original = account(templates[selected]);
       const change = x.cost - original.cost;
       const share = x.cost ? x.firstCost / x.cost * 100 : null;
-      const pct = Math.min(100, x.payCap);
+      const pct = Math.floor((Math.min(100, x.payCap) + 1e-9) * 100) / 100;
       const loss = x.contribution < -0.000001;
       const threshold = x.payCap >= 100 ? '按采购原价结算也能覆盖模型费用。'
         : `采购实付需控制在标价的 ${decimals(pct)}% 以内才能覆盖模型费用。`;
       get('[data-readout]').innerHTML = `
         <div class="fc-readout">
         <div><small>单件模型成本</small><strong>${money(x.cost)}</strong><span>较基准 ${signed(change)}</span></div>
-        <div><small>含补贴的保本标价</small><strong>${money(x.minPrice)}</strong><span>当前标价 ${money(t.price)}</span></div>
+        <div><small>含补贴的最低保本价</small><strong>${money(x.minPrice)}</strong><span>当前标价 ${money(t.price)}</span></div>
         <div><small>单件贡献余额</small><strong class="${loss ? 'fc-loss' : 'fc-ok'}">${signed(x.contribution)}</strong><span>实收 ${money(x.net)} 扣除模型成本</span></div></div>
         <p class="fc-verdict"><b>${t.name}</b>　${share === null ? '当前假设的模型实付成本为零。' : `首构占模型成本 ${decimals(share)}%，追加编辑合计 ${money(x.editCost)}/件。`} ${threshold}</p>
         ${window.renderForgeDistribution?.(t, x.cost, x.net) || ''}`;
@@ -147,7 +147,7 @@
       const marginText = m => m === null ? '无销售实收' : decimals(m) + '%';
       const boundary = stressed.ceiling === null ? '当前无付费件数，无需估算临界比例。'
         : stressed.ceiling >= 100 ? '即使按采购原价结算，组合也能覆盖模型成本。'
-        : `采购实付超过标价的 ${decimals(stressed.ceiling)}% 时，组合将无法覆盖模型成本。`;
+        : `组合保本的采购实付临界约为标价的 ${decimals(stressed.ceiling)}%。`;
       get('[data-matrix]').innerHTML = `
         <h3>组合压力测试 · 采购条件与模板用量</h3>
         <p>如果采购优惠收窄，同时「${t.name}」销量上升，其他模板的收入还能覆盖成本吗？每格显示组合月贡献余额与贡献率。点击查看各模板如何分摊。</p>
